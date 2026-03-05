@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | My Portfolio</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#1c1c1c;
+    color:white;
+    font-family:Arial, sans-serif;
+    padding-top:80px;
+}
+
+/* NAVIGATION */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    background:rgba(30,30,30,0.9);
+    text-align:center;
+    padding:20px 0;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff69b4;
+}
+
+/* SECTION */
+section{
+    padding:40px 20px 80px;
+}
+
+h2{
+    text-align:center;
+    color:#ff69b4;
+    margin-bottom:40px;
+}
+
+/* PROJECT GRID */
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.project-card{
+    background:rgba(255,192,203,0.1);
+    border-radius:15px;
+    padding:20px;
+    backdrop-filter:blur(10px);
+    text-align:center;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.project-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 36px rgba(255,105,180,0.4);
+}
+
+.project-card img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
+    height:170px;
+    object-fit:cover;
+}
+
+.project-card h3{
+    color:#ff69b4;
+    margin-bottom:10px;
+}
+
+.project-card p{
+    color:#ffe4e1;
+    font-size:14px;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:#1c1c1c;
+    width:90%;
+    max-width:700px;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    animation:fadeIn .3s ease;
+    position:relative;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(.9);}
+    to{opacity:1; transform:scale(1);}
+}
+
+/* FIXED IMAGE & VIDEO SIZE */
+.modal-content img,
+.modal-content video{
+    width:100%;
+    max-width:600px;
+    max-height:70vh;
+    object-fit:contain;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="projects.html">My Projects</a>
+<a href="about.html">About Me</a>
+<a href="contacts.html">Contacts</a>
+</nav>
+
+<section>
+<h2>My Projects</h2>
+
+<div class="projects-container">
+
+<div class="project-card" onclick="openModal('defenseModal')">
+<img src="defense.jpg">
+<h3>DEFENSE</h3>
+<p>In our first year, we conducted our project defense under Sir Palacio for the subject Intermediate Programming</p>
+</div>
+
+<div class="project-card" onclick="openModal('pitchingModal')">
+<img src="JOB.png">
+<h3>PITCHING</h3>
+<p>In our second year, during the second semester, we conducted a project pitching presentation.</p>
+</div>
+
+<div class="project-card" onclick="openModal('codingModal')">
+<img src="coding.jpg">
+<h3>CODING</h3>
+<p>In the second semester of our second year, we were tasked with building a complete system for our final project, which included backend coding, database management, and GUI development.</p>
+</div>
+
+<div class="project-card" onclick="openModal('robotModal')">
+<img src="picc.jpg">
+<h3>ROBOT</h3>
+<p>During the second semester of our second year, we assembled a robot as part of our project and successfully defended it.</p>
+</div>
+
+<div class="project-card" onclick="openModal('pathfitModal')">
+<img src="PATHFIT.jpg">
+<h3>PATHFIT2</h3>
+<p>As part of our final project in PathFit, we performed a cheer dance and proudly secured 3rd place.</p>
+</div>
+
+</div>
+</section>
+
+<!-- DEFENSE IMAGE -->
+<div id="defenseModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('defenseModal')">&times;</span>
+<h2>DEFENSE PROJECT</h2>
+<img src="defense.jpg">
+</div>
+</div>
+
+<!-- PITCHING VIDEO -->
+<div id="pitchingModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('pitchingModal')">&times;</span>
+<h2>PITCHING PRESENTATION</h2>
+<video controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+
+<!-- CODING VIDEO -->
+<div id="codingModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('codingModal')">&times;</span>
+<h2>CODING PROJECT</h2>
+<video controls>
+<source src="JANE_MAJO.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+
+<!-- ROBOT IMAGE -->
+<div id="robotModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('robotModal')">&times;</span>
+<h2>ROBOT PROJECT</h2>
+<img src="rob.jpg">
+</div>
+</div>
+
+<!-- PATHFIT VIDEO -->
+<div id="pathfitModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('pathfitModal')">&times;</span>
+<h2>PATHFIT2 PROJECT</h2>
+<video controls>
+<source src="Dance.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+
+<script>
+function openModal(id){
+    document.getElementById(id).style.display="flex";
+}
+
+function closeModal(id){
+    const modal=document.getElementById(id);
+    modal.style.display="none";
+
+    modal.querySelectorAll("video").forEach(v=>{
+        v.pause();
+        v.currentTime=0;
+    });
+}
+
+window.addEventListener("click",function(e){
+    document.querySelectorAll(".modal").forEach(modal=>{
+        if(e.target===modal){
+            closeModal(modal.id);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+
